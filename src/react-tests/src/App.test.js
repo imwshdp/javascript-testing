@@ -1,74 +1,24 @@
-/* eslint-disable testing-library/no-debugging-utils */
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from './App';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-describe('React testing', () => {
-	test('Examples with Get methods', () => {
-		render(<App />);
+import routerConfig from './router';
 
-		const helloWorldElement = screen.getByText(/Hello, world!/i);
-		expect(helloWorldElement).toBeInTheDocument();
+describe('React Router Tests', () => {
+	test('Link Click Events Testing', () => {
+		const router = createBrowserRouter([routerConfig]);
 
-		const buttonElement = screen.getByRole('button');
-		expect(buttonElement).toBeInTheDocument();
+		render(<RouterProvider router={router} />);
 
-		const inputElement = screen.getByPlaceholderText('input value');
-		expect(inputElement).toBeInTheDocument();
-		expect(inputElement).toMatchSnapshot();
-	});
+		const mainLink = screen.getByTestId('main-link');
+		const aboutLink = screen.getByTestId('about-link');
 
-	test('Examples with Query methods', () => {
-		render(<App />);
+		setTimeout(() => {
+			userEvent.click(aboutLink);
+			expect(screen.getByTestId('about-page')).toBeInTheDocument();
 
-		const nullableHelloWorldElement = screen.queryByText(/Hello, world! 2/i);
-		expect(nullableHelloWorldElement).toBeNull();
-	});
-
-	test('Examples with Find methods', async () => {
-		render(<App />);
-
-		screen.debug();
-
-		const dataElement = await screen.findByText(/Data is received/i);
-		expect(dataElement).toBeInTheDocument();
-		expect(dataElement).toHaveStyle({
-			color: 'red'
+			userEvent.click(mainLink);
+			expect(screen.getByTestId('main-page')).toBeInTheDocument();
 		});
-
-		screen.debug();
-	});
-
-	test('Examples with React click event', () => {
-		render(<App />);
-
-		const toggleSwitcher = screen.getByTestId('toggle-switcher');
-
-		expect(screen.queryByTestId('toggle-element')).toBeNull();
-
-		fireEvent.click(toggleSwitcher);
-		expect(screen.getByTestId('toggle-element')).toBeInTheDocument();
-
-		fireEvent.click(toggleSwitcher);
-		expect(screen.queryByTestId('toggle-element')).toBeNull();
-	});
-
-	test('Examples with React input event', () => {
-		render(<App />);
-
-		const inputElement = screen.getByPlaceholderText('input value');
-		expect(screen.queryByTestId('value-element')).toContainHTML('');
-
-		// Example with fireEvent
-		// fireEvent.input(inputElement, {
-		// 	target: {
-		// 		value: '123'
-		// 	}
-		// });
-
-		// Example with userEvent
-		userEvent.type(inputElement, '123');
-
-		expect(screen.queryByTestId('value-element')).toContainHTML('123');
 	});
 });
