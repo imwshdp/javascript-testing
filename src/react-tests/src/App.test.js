@@ -1,8 +1,9 @@
 /* eslint-disable testing-library/no-debugging-utils */
 import { fireEvent, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 
-describe('Renders learn react link', () => {
+describe('React testing', () => {
 	test('Examples with Get methods', () => {
 		render(<App />);
 
@@ -50,5 +51,24 @@ describe('Renders learn react link', () => {
 
 		fireEvent.click(toggleSwitcher);
 		expect(screen.queryByTestId('toggle-element')).toBeNull();
+	});
+
+	test('Examples with React input event', () => {
+		render(<App />);
+
+		const inputElement = screen.getByPlaceholderText('input value');
+		expect(screen.queryByTestId('value-element')).toContainHTML('');
+
+		// Example with fireEvent
+		// fireEvent.input(inputElement, {
+		// 	target: {
+		// 		value: '123'
+		// 	}
+		// });
+
+		// Example with userEvent
+		userEvent.type(inputElement, '123');
+
+		expect(screen.queryByTestId('value-element')).toContainHTML('123');
 	});
 });

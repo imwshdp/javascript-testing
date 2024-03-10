@@ -8,32 +8,46 @@ function App() {
 	const onClick = () => setToggle(previousToggle => !previousToggle);
 
 	useEffect(() => {
-		setTimeout(() => {
+		const timer = setTimeout(() => {
 			setData({});
 		}, 100);
+
+		return () => clearTimeout(timer);
 	}, []);
 
 	return (
-		<div className='App'>
-			<h1>Hello, world!</h1>
+		<main className='App'>
+			<div>
+				<h1>Hello, world!</h1>
+			</div>
 
-			<h2>Example with toggle</h2>
-			{toggle && <div data-testid='toggle-element'>Toggled!</div>}
-			<button data-testid='toggle-switcher' onClick={onClick}>
-				Click me!
-			</button>
+			<div>
+				<h2>Example with toggle</h2>
+				{toggle && <div data-testid='toggle-element'>Toggled!</div>}
+				<button data-testid='toggle-switcher' onClick={onClick}>
+					Click me!
+				</button>
+			</div>
 
-			<h2>Example with input</h2>
-			<input
-				type='text'
-				placeholder='input value'
-				value={inputValue}
-				onChange={event => setInputValue(event.target.value)}
-			/>
+			<div>
+				<h2>Example with input</h2>
 
-			<h2>Example with async data fetching</h2>
-			{data && <div style={{ color: 'red' }}>Data is received</div>}
-		</div>
+				<input
+					type='text'
+					placeholder='input value'
+					value={inputValue}
+					onChange={event => setInputValue(event.target.value)}
+				/>
+				<div>
+					<b data-testid='value-element'>{inputValue}</b>
+				</div>
+			</div>
+
+			<div>
+				<h2>Example with async data fetching</h2>
+				{data && <div style={{ color: 'red' }}>Data is received</div>}
+			</div>
+		</main>
 	);
 }
 

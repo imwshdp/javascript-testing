@@ -1,3 +1,5 @@
 node_modules
 package-lock.json
 yarn.lock
+
+/src/react-tests/node_modules

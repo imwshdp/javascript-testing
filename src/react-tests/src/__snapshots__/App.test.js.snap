@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`React testing Examples with Get methods 1`] = `
+<input
+  placeholder="input value"
+  type="text"
+  value=""
+/>
+`;
+
 exports[`Renders learn react link Basic JSX testing 1`] = `
 <input
   placeholder="input value"

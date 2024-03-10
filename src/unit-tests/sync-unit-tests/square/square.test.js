@@ -3,7 +3,6 @@ const square = require('./square');
 
 describe('Тестирование функции square', () => {
 	beforeEach(() => {});
-
 	beforeAll(() => {});
 
 	test('Корректное значение', () => {
@@ -26,6 +25,5 @@ describe('Тестирование функции square', () => {
 	afterEach(() => {
 		jest.clearAllMocks();
 	});
-
 	afterAll(() => {});
 });
