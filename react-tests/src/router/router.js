@@ -1,25 +1,6 @@
-import App from '../App';
-import MainPage from '../pages/MainPage';
-import AboutPage from '../pages/AboutPage';
-import ErrorPage from '../pages/ErrorPage';
+import { createBrowserRouter } from 'react-router-dom';
+import { routerConfig } from './data';
 
-const routerConfig = {
-	path: '/',
-	element: <App />,
-	children: [
-		{
-			index: true,
-			element: <MainPage />
-		},
-		{
-			path: 'about',
-			element: <AboutPage />
-		},
-		{
-			path: '*',
-			element: <ErrorPage />
-		}
-	]
-};
+const router = createBrowserRouter(routerConfig);
 
-export default routerConfig;
+export default router;

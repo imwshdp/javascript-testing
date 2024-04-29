@@ -28,7 +28,7 @@ describe('React async tests :>>', () => {
 
 		expect(axios.get).toBeCalledTimes(1);
 
-		screen.debug();
+		// screen.debug();
 	});
 
 	afterEach(() => {

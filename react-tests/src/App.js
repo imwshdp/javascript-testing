@@ -5,10 +5,10 @@ function App() {
 		<main className='app'>
 			<div className='nav'>
 				<Link data-testid='main-link' to={'/'}>
-					Главная страница
+					Main Page
 				</Link>
 				<Link data-testid='about-link' to={'/about'}>
-					Второстепенная страница
+					About Page
 				</Link>
 			</div>
 

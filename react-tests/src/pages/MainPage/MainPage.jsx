@@ -65,7 +65,8 @@ const MainPage = () => {
 			<div>
 				<h2>Example with async data fetching</h2>
 
-				<Users />
+				{/* TODO: uncomment later */}
+				{/* <Users /> */}
 			</div>
 		</section>
 	);

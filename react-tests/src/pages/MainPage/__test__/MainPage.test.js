@@ -40,7 +40,7 @@ describe('React tests :>>', () => {
 	test('Find method', async () => {
 		render(<MainPage />);
 
-		screen.debug();
+		// screen.debug();
 
 		const dataElement = await screen.findByText(/Data is received/i);
 		expect(dataElement).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe('React tests :>>', () => {
 			color: 'red'
 		});
 
-		screen.debug();
+		// screen.debug();
 	});
 
 	test('Click event', () => {
