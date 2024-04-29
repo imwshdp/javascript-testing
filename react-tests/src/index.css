@@ -41,3 +41,9 @@ code {
 	background-color: oldlace;
 	box-shadow: 0px 1px 5px;
 }
+
+.userlist {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Users from '../../components/Users';
+// import Users from '../../components/Users';
 
 const MainPage = () => {
 	const [data, setData] = useState(null);
@@ -62,12 +62,11 @@ const MainPage = () => {
 
 			<hr />
 
-			<div>
-				<h2>Example with async data fetching</h2>
-
-				{/* TODO: uncomment later */}
-				{/* <Users /> */}
-			</div>
+			{/* TODO: uncomment for users list rendering */}
+			{/* <div> */}
+			{/* <h2>Example with async data fetching</h2> */}
+			{/* <Users /> */}
+			{/* </div> */}
 		</section>
 	);
 };

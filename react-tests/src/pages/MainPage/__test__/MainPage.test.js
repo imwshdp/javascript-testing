@@ -1,5 +1,4 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-/* eslint-disable testing-library/no-debugging-utils */
 import { fireEvent, render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import MainPage from '../MainPage';
@@ -40,15 +39,11 @@ describe('React tests :>>', () => {
 	test('Find method', async () => {
 		render(<MainPage />);
 
-		// screen.debug();
-
 		const dataElement = await screen.findByText(/Data is received/i);
 		expect(dataElement).toBeInTheDocument();
 		expect(dataElement).toHaveStyle({
 			color: 'red'
 		});
-
-		// screen.debug();
 	});
 
 	test('Click event', () => {
