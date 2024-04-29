@@ -1,5 +1,4 @@
-/* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
@@ -15,14 +14,14 @@ describe('React Router Tests :>>', () => {
 
 		// move to about
 		const aboutLink = screen.getByTestId('about-link');
-		act(() => userEvent.click(aboutLink));
+		userEvent.click(aboutLink);
 
 		const aboutPage = screen.getByTestId('about-page');
 		expect(aboutPage).toBeInTheDocument();
 
 		// move to main
 		const mainLink = screen.getByTestId('main-link');
-		act(() => userEvent.click(mainLink));
+		userEvent.click(mainLink);
 
 		const mainPage = screen.getByTestId('main-page');
 		expect(mainPage).toBeInTheDocument();

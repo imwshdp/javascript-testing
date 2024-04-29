@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { fireEvent, render, screen, act } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import MainPage from '../MainPage';
 
@@ -53,10 +53,10 @@ describe('React tests :>>', () => {
 
 		expect(screen.queryByTestId('toggle-element')).toBeNull();
 
-		act(() => fireEvent.click(toggleSwitcher));
+		fireEvent.click(toggleSwitcher);
 		expect(screen.getByTestId('toggle-element')).toBeInTheDocument();
 
-		act(() => fireEvent.click(toggleSwitcher));
+		fireEvent.click(toggleSwitcher);
 		expect(screen.queryByTestId('toggle-element')).toBeNull();
 	});
 
@@ -76,7 +76,7 @@ describe('React tests :>>', () => {
 		// );
 
 		// Example with userEvent
-		act(() => userEvent.type(inputElement, '123'));
+		userEvent.type(inputElement, '123');
 
 		expect(screen.queryByTestId('value-element')).toContainHTML('123');
 	});

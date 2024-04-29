@@ -1,14 +1,16 @@
 /* eslint-disable testing-library/no-unnecessary-act */
 /* eslint-disable jest/no-mocks-import */
-import { render, screen, waitFor, act } from '@testing-library/react';
-import { MemoryRouter, Route, Routes } from 'react-router-dom';
+
+import { render, screen, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 
 import axios from 'axios';
 
 import Users from '../Users';
-import UserPage from '../../../pages/UserPage';
+
 import mockGetUsersResponse from '../../../__mocks__/axios';
+import { renderWithRouter } from '../../../tests/helpers/renderWithRouter';
 
 describe('React async tests :>>', () => {
 	beforeEach(() => {
@@ -38,19 +40,12 @@ describe('React async tests :>>', () => {
 	});
 
 	test('User page navigation', async () => {
-		render(
-			<MemoryRouter initialEntries={['/users']}>
-				<Routes>
-					<Route path='/users' element={<Users />} />
-					<Route path='/users/:userId' element={<UserPage />} />
-				</Routes>
-			</MemoryRouter>
-		);
+		render(renderWithRouter(null, '/users'));
 
 		const users = await screen.findAllByTestId('user-item');
 		expect(users.length).toBe(3);
 
-		act(() => userEvent.click(users[0]));
+		userEvent.click(users[0]);
 
 		expect(screen.getByTestId('user-page')).toBeInTheDocument();
 	});
