@@ -1,6 +1,6 @@
 import counterReducer, { incremented, decremented } from '../../../store/reducers/counterReducer';
 
-describe('Counter Reducer Test', () => {
+describe('Counter Reducer Test :>>', () => {
 	test('Incremented', () => {
 		expect(
 			counterReducer(

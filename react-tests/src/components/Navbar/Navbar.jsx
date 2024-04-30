@@ -12,6 +12,7 @@ const Navbar = () => {
 			<Link data-testid='users-link' to={'/users'}>
 				User list
 			</Link>
+			<Link to={'/redux'}>Redux</Link>
 		</div>
 	);
 };

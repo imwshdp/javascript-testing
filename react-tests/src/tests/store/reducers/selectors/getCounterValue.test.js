@@ -1,6 +1,6 @@
 import { getCounterValue } from '../../../../store/reducers/selectors/getCounterValue';
 
-describe('GetCounterValue Selector Test', () => {
+describe('GetCounterValue Selector Test :>>', () => {
 	test('Work with empty state', () => {
 		expect(getCounterValue({})).toBe(0);
 	});

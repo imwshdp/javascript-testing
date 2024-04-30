@@ -4,6 +4,7 @@ import AboutPage from '../pages/AboutPage';
 import ErrorPage from '../pages/ErrorPage';
 import UsersPage from '../pages/UsersPage';
 import UserPage from '../pages/UserPage';
+import ReduxPage from '../pages/ReduxPage';
 
 export const routerConfig = [
 	{
@@ -20,12 +21,15 @@ export const routerConfig = [
 			},
 			{
 				path: 'users',
-				element: <UsersPage />,
-				children: []
+				element: <UsersPage />
 			},
 			{
 				path: 'users/:userId',
 				element: <UserPage />
+			},
+			{
+				path: 'redux',
+				element: <ReduxPage />
 			},
 			{
 				path: '*',

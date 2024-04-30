@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 
 import { routerConfig } from '../../router';
 
-function generateRoutesFromConfig({ routes, parentPath = '/', deep = 0 }) {
+export function generateRoutesFromConfig({ routes, parentPath = '/', deep = 0 }) {
 	return routes.map((route, index) => {
 		const element = route.element;
 		const path = route.path ?? parentPath;

@@ -14,11 +14,11 @@ function Counter() {
 
 	return (
 		<div>
-			<h1>Value = {value}</h1>
-			<button type='button' onClick={onIncrement}>
+			<h1 data-testid='counter-title'>{value}</h1>
+			<button data-testid='increment-button' type='button' onClick={onIncrement}>
 				Increment
 			</button>
-			<button type='button' onClick={onDecrement}>
+			<button data-testid='decrement-button' type='button' onClick={onDecrement}>
 				Decrement
 			</button>
 		</div>
