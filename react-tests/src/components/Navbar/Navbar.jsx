@@ -13,6 +13,7 @@ const Navbar = () => {
 				User list
 			</Link>
 			<Link to={'/redux'}>Redux</Link>
+			<Link to={'/e2e'}>E2E</Link>
 		</div>
 	);
 };

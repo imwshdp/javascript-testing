@@ -5,6 +5,7 @@ import ErrorPage from '../pages/ErrorPage';
 import UsersPage from '../pages/UsersPage';
 import UserPage from '../pages/UserPage';
 import ReduxPage from '../pages/ReduxPage';
+import E2ePage from '../pages/E2ePage';
 
 export const routerConfig = [
 	{
@@ -30,6 +31,10 @@ export const routerConfig = [
 			{
 				path: 'redux',
 				element: <ReduxPage />
+			},
+			{
+				path: 'e2e',
+				element: <E2ePage />
 			},
 			{
 				path: '*',
