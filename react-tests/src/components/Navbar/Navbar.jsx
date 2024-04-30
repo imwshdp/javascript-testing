@@ -12,8 +12,15 @@ const Navbar = () => {
 			<Link data-testid='users-link' to={'/users'}>
 				User list
 			</Link>
+
+			<div className='separator' />
+
 			<Link to={'/redux'}>Redux</Link>
+
+			<div className='separator' />
+
 			<Link to={'/e2e'}>E2E</Link>
+			<Link to={'/users-test'}>Async E2E</Link>
 		</div>
 	);
 };

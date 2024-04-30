@@ -2,7 +2,7 @@ const { expect } = require('@wdio/globals');
 const HelloE2ePage = require('../pages/hello.page');
 
 describe('Hello E2E Page Tests: >>', () => {
-	it('should toggle hello title', async () => {
+	it('Should toggle hello title', async () => {
 		await HelloE2ePage.open();
 
 		await HelloE2ePage.toggleTitleWithInput('hello');
@@ -13,7 +13,7 @@ describe('Hello E2E Page Tests: >>', () => {
 		await expect(HelloE2ePage.helloTitle).not.toBeExisting();
 	});
 
-	it('should not toggle hello title', async () => {
+	it('Should not toggle hello title', async () => {
 		await HelloE2ePage.open();
 
 		await HelloE2ePage.toggleTitleWithInput('not valid string');
