@@ -4,13 +4,13 @@ module.exports = {
 	collectCoverageFrom: ['src/**/*.{js,jsx}'],
 	coverageDirectory: 'coverage',
 	testEnvironment: 'jsdom',
-	setupFilesAfterEnv: ['<rootDir>/setup-tests.js'],
+	setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
 	transform: {
 		'^.+\\.(js|jsx)$': 'babel-jest'
 	},
 	moduleFileExtensions: ['js', 'jsx'],
 	moduleNameMapper: {
 		'^.+\\.svg$': 'jest-svg-transformer',
-		'^.+\\.css$': 'identity-obj-proxy'
+		'^.+\\.(css|scss)$': 'identity-obj-proxy'
 	}
 };
