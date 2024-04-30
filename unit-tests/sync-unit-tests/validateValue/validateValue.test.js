@@ -1,7 +1,7 @@
 const { describe, expect, test } = require('@jest/globals');
 const validateValue = require('./validateValue');
 
-describe('Unit tests (validateValue) :>>', () => {
+describe('ValidateValue Function Tests :>>', () => {
 	test('Correct value', () => {
 		expect(validateValue(50)).toBe(true);
 	});

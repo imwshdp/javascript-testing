@@ -1,26 +1,24 @@
-/* eslint-disable testing-library/no-unnecessary-act */
 /* eslint-disable jest/no-mocks-import */
-
-import { render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import axios from 'axios';
 
-import Users from '../Users';
+import Users from '../../../components/Users';
+import { renderWithRouter } from '../../helpers';
+import { getUsers } from '../../__mocks__/getUsers';
 
-import mockGetUsersResponse from '../../../__mocks__/axios';
-import { renderWithRouter } from '../../../tests/helpers/renderWithRouter';
-
-describe('React async tests :>>', () => {
+describe('Users Tests :>>', () => {
 	beforeEach(() => {
-		const response = {
-			data: mockGetUsersResponse
-		};
-		axios.get = jest.fn().mockResolvedValue(response);
+		axios.get = jest.fn().mockResolvedValue(getUsers());
 	});
 
-	test('Users fetching', async () => {
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
+
+	test('All Users Fetching', async () => {
 		render(
 			<MemoryRouter>
 				<Users />
@@ -31,7 +29,6 @@ describe('React async tests :>>', () => {
 			const users = screen.getAllByTestId('user-item');
 			expect(users.length).toBe(3);
 		});
-
 		// or use
 		// const users = await screen.findAllByTestId('user-item');
 		// expect(users.length).toBe(3);
@@ -39,8 +36,8 @@ describe('React async tests :>>', () => {
 		expect(axios.get).toBeCalledTimes(1);
 	});
 
-	test('User page navigation', async () => {
-		render(renderWithRouter(null, '/users'));
+	test('Navigation to User Page', async () => {
+		renderWithRouter(null, '/users');
 
 		const users = await screen.findAllByTestId('user-item');
 		expect(users.length).toBe(3);
@@ -48,9 +45,5 @@ describe('React async tests :>>', () => {
 		userEvent.click(users[0]);
 
 		expect(screen.getByTestId('user-page')).toBeInTheDocument();
-	});
-
-	afterEach(() => {
-		jest.clearAllMocks();
 	});
 });

@@ -1,19 +1,9 @@
-/* eslint-disable testing-library/no-unnecessary-act */
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import MainPage from '../MainPage';
 
-import axios from 'axios';
+import MainPage from '../../../pages/MainPage';
 
-describe('React tests :>>', () => {
-	// mock axios for every <Users /> render inside <MainPage />
-	beforeEach(() => {
-		const response = {
-			data: []
-		};
-		axios.get = jest.fn().mockResolvedValue(response);
-	});
-
+describe('React Basics Tests :>>', () => {
 	test('Get method', () => {
 		render(<MainPage />);
 
@@ -46,7 +36,7 @@ describe('React tests :>>', () => {
 		});
 	});
 
-	test('Click event', () => {
+	test('FireEvent', () => {
 		render(<MainPage />);
 
 		const toggleSwitcher = screen.getByTestId('toggle-switcher');
@@ -60,29 +50,22 @@ describe('React tests :>>', () => {
 		expect(screen.queryByTestId('toggle-element')).toBeNull();
 	});
 
-	test('Input event', () => {
+	test('UserEvent', () => {
 		render(<MainPage />);
 
 		const inputElement = screen.getByPlaceholderText(/input value/i);
 		expect(screen.queryByTestId('value-element')).toContainHTML('');
 
 		// Example with fireEvent
-		// act(() =>
-		// 	fireEvent.input(inputElement, {
-		// 		target: {
-		// 			value: '123'
-		// 		}
-		// 	})
-		// );
+		// fireEvent.input(inputElement, {
+		// 	target: {
+		// 		value: '123'
+		// 	}
+		// });
 
 		// Example with userEvent
 		userEvent.type(inputElement, '123');
 
 		expect(screen.queryByTestId('value-element')).toContainHTML('123');
-	});
-
-	// clear mock axios after every test
-	afterEach(() => {
-		jest.clearAllMocks();
 	});
 });

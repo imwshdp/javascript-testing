@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Асинхронные тесты с axios Корректное значение 1`] = `
+exports[`GetData Function Tests :>> Axios getting data 1`] = `
 [
   "1",
   "2",

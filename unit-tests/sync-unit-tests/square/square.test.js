@@ -1,9 +1,14 @@
 const { describe, expect, test, beforeEach, beforeAll, afterEach, afterAll } = require('@jest/globals');
 const square = require('./square');
 
-describe('Unit tests (square) :>>', () => {
-	beforeEach(() => {});
-	beforeAll(() => {});
+describe('Square Function Tests :>>', () => {
+	// Example of all lifecycle method
+	// beforeEach(() => {});
+	// beforeAll(() => {});
+	// afterAll(() => {});
+	afterEach(() => {
+		jest.clearAllMocks();
+	});
 
 	test('Expect methods', () => {
 		expect(square(2)).toBe(4);
@@ -16,14 +21,9 @@ describe('Unit tests (square) :>>', () => {
 		expect(spyMathPow).toBeCalledTimes(1);
 	});
 
-	test('Testing with spyOn', () => {
+	test('Testing function with spyOn', () => {
 		const spyMathPow = jest.spyOn(Math, 'pow');
 		square(1);
 		expect(spyMathPow).toBeCalledTimes(0);
 	});
-
-	afterEach(() => {
-		jest.clearAllMocks();
-	});
-	afterAll(() => {});
 });

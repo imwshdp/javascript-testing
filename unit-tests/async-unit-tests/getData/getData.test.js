@@ -2,14 +2,15 @@ const { describe, test, expect, beforeEach } = require('@jest/globals');
 const axios = require('axios');
 
 const getData = require('./getData');
-const mockGetAxiosUsers = require('../../__mocks__/axios');
+const { getUsers } = require('../../__mocks__/getUsers');
 
-describe('Async unit tests (axios) :>>', () => {
+describe('GetData Function Tests :>>', () => {
 	beforeEach(() => {
-		const response = {
-			data: mockGetAxiosUsers
-		};
-		axios.get = jest.fn().mockResolvedValue(response);
+		axios.get = jest.fn().mockResolvedValue(getUsers());
+	});
+
+	afterEach(() => {
+		jest.clearAllMocks();
 	});
 
 	test('Axios getting data', async () => {
@@ -19,9 +20,5 @@ describe('Async unit tests (axios) :>>', () => {
 		expect(data).toEqual(['1', '2', '3']);
 
 		expect(data).toMatchSnapshot();
-	});
-
-	afterEach(() => {
-		jest.clearAllMocks();
 	});
 });

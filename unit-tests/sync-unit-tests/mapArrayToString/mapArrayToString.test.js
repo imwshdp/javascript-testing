@@ -1,7 +1,7 @@
 const { describe, expect, test } = require('@jest/globals');
 const mapArrayToString = require('./mapArrayToString');
 
-describe('Unit tests (mapArrayToString) :>>', () => {
+describe('MapArrayToString Function Tests :>>', () => {
 	test('Array with numbers', () => {
 		expect(mapArrayToString([1, 2, 3])).toEqual(['1', '2', '3']);
 	});

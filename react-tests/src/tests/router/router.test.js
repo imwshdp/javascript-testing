@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 
-import { routerConfig } from '../data';
+import { routerConfig } from '../../router';
 
 describe('React Router Tests :>>', () => {
-	test('Navigation updates on link click', () => {
+	test('Navigation On Link Click', () => {
 		const router = createMemoryRouter(routerConfig, {
 			initialEntries: ['/']
 		});
@@ -26,7 +26,8 @@ describe('React Router Tests :>>', () => {
 		const mainPage = screen.getByTestId('main-page');
 		expect(mainPage).toBeInTheDocument();
 	});
-	test('Landing on a error page', () => {
+
+	test('Landing on a Error Page', () => {
 		const router = createMemoryRouter(routerConfig, {
 			initialEntries: ['/go-to-error']
 		});

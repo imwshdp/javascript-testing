@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import Users from '../../components/Users';
 
 const MainPage = () => {
 	const [data, setData] = useState(null);
@@ -59,14 +58,6 @@ const MainPage = () => {
 
 				{data && <div style={{ color: 'red' }}>Data is received</div>}
 			</div>
-
-			<hr />
-
-			{/* TODO: uncomment for users list rendering */}
-			{/* <div> */}
-			{/* <h2>Example with async data fetching</h2> */}
-			{/* <Users /> */}
-			{/* </div> */}
 		</section>
 	);
 };

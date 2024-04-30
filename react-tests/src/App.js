@@ -1,20 +1,10 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
 	return (
 		<main className='app'>
-			<div className='nav'>
-				<Link data-testid='main-link' to={'/'}>
-					Main Page
-				</Link>
-				<Link data-testid='about-link' to={'/about'}>
-					About Page
-				</Link>
-				<Link data-testid='users-link' to={'/users'}>
-					User list
-				</Link>
-			</div>
-
+			<Navbar />
 			<Outlet />
 		</main>
 	);

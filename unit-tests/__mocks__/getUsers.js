@@ -1,4 +1,4 @@
-const mockGetAxiosUsers = [
+const users = [
 	{
 		id: 1,
 		name: 'Leanne Graham',
@@ -70,4 +70,12 @@ const mockGetAxiosUsers = [
 	}
 ];
 
-module.exports = mockGetAxiosUsers;
+const getUsers = () => {
+	return {
+		data: users
+	};
+};
+
+module.exports = {
+	getUsers
+};
