@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import Counter from '../../components/Counter';
+
 const MainPage = () => {
 	const [data, setData] = useState(null);
 	const [toggle, setToggle] = useState(false);
@@ -57,6 +59,13 @@ const MainPage = () => {
 				<h2>Example with async actions</h2>
 
 				{data && <div style={{ color: 'red' }}>Data is received</div>}
+			</div>
+
+			<hr />
+
+			<div>
+				<h2>Example with Redux</h2>
+				{/* <Counter /> */}
 			</div>
 		</section>
 	);
